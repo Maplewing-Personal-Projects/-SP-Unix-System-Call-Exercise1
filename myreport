@@ -1,4 +1,4 @@
-Script started on Sun 09 Dec 2012 04:08:06 PM CST
+Script started on Sun 09 Dec 2012 09:41:11 PM CST
 ]0;u99098@telnet: ~/git/SP_Unix_System_Call_Exerciseu99098@telnet:~/git/SP_Unix_System_Call_Exercise$ cat myprog.c
 #include <stdio.h>
 #include <sys/types.h>
@@ -42,6 +42,7 @@ int main(){
       close(pfd[i][PIPE_READ]);
       close(pfd[i][PIPE_WRITE]);
     }
+    close(fd);
     execlp( "ps", "ps", "aux", (char *)NULL);
   }
   else{
@@ -58,6 +59,7 @@ int main(){
         close(pfd[i][PIPE_READ]);
         close(pfd[i][PIPE_WRITE]);
       }
+      close(fd);
       execlp("grep", "grep", "u99098", (char *)NULL );
     }
     else{
@@ -74,6 +76,7 @@ int main(){
           close(pfd[i][PIPE_READ]);
           close(pfd[i][PIPE_WRITE]);
         }
+        close(fd);
         execlp("wc", "wc", (char *)NULL);
       }
       else{
@@ -81,6 +84,7 @@ int main(){
           close(pfd[i][PIPE_READ]);
           close(pfd[i][PIPE_WRITE]);
         }
+        close(fd);
         wait( (int *)0 );
         wait( (int *)0 );
         wait( (int *)0 );
@@ -90,21 +94,21 @@ int main(){
 
   return 0;
 }
-]0;u99098@telnet: ~/git/SP_Unix_System_Call_Exerciseu99098@telnet:~/git/SP_Unix_System_Call_Exercise$ gcc mt[Kyprog.c -o mt[Kyprog
+]0;u99098@telnet: ~/git/SP_Unix_System_Call_Exerciseu99098@telnet:~/git/SP_Unix_System_Call_Exercise$ gcc mty[K[Kyprog.c -o myprog
 myprog.c: In function ‘main’:
 myprog.c:20:5: warning: incompatible implicit declaration of built-in function ‘exit’
 myprog.c:24:5: warning: incompatible implicit declaration of built-in function ‘exit’
 myprog.c:29:5: warning: incompatible implicit declaration of built-in function ‘exit’
 myprog.c:34:5: warning: incompatible implicit declaration of built-in function ‘exit’
-myprog.c:43:5: warning: incompatible implicit declaration of built-in function ‘execlp’
-myprog.c:48:7: warning: incompatible implicit declaration of built-in function ‘exit’
-myprog.c:59:7: warning: incompatible implicit declaration of built-in function ‘execlp’
-myprog.c:64:9: warning: incompatible implicit declaration of built-in function ‘exit’
-myprog.c:75:9: warning: incompatible implicit declaration of built-in function ‘execlp’
-]0;u99098@telnet: ~/git/SP_Unix_System_Call_Exerciseu99098@telnet:~/git/SP_Unix_System_Call_Exercise$ ./myprog
+myprog.c:44:5: warning: incompatible implicit declaration of built-in function ‘execlp’
+myprog.c:49:7: warning: incompatible implicit declaration of built-in function ‘exit’
+myprog.c:61:7: warning: incompatible implicit declaration of built-in function ‘execlp’
+myprog.c:66:9: warning: incompatible implicit declaration of built-in function ‘exit’
+myprog.c:78:9: warning: incompatible implicit declaration of built-in function ‘execlp’
+]0;u99098@telnet: ~/git/SP_Unix_System_Call_Exerciseu99098@telnet:~/git/SP_Unix_System_Call_Exercise$ ./.[Kmyprog
 ]0;u99098@telnet: ~/git/SP_Unix_System_Call_Exerciseu99098@telnet:~/git/SP_Unix_System_Call_Exercise$ cat foo
-     10     118     769
+     13     154    1012
 ]0;u99098@telnet: ~/git/SP_Unix_System_Call_Exerciseu99098@telnet:~/git/SP_Unix_System_Call_Exercise$ exit
 exit
 
-Script done on Sun 09 Dec 2012 04:08:38 PM CST
+Script done on Sun 09 Dec 2012 09:41:34 PM CST

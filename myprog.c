@@ -40,6 +40,7 @@ int main(){
       close(pfd[i][PIPE_READ]);
       close(pfd[i][PIPE_WRITE]);
     }
+    close(fd);
     execlp( "ps", "ps", "aux", (char *)NULL);
   }
   else{
@@ -56,6 +57,7 @@ int main(){
         close(pfd[i][PIPE_READ]);
         close(pfd[i][PIPE_WRITE]);
       }
+      close(fd);
       execlp("grep", "grep", "u99098", (char *)NULL );
     }
     else{
@@ -72,6 +74,7 @@ int main(){
           close(pfd[i][PIPE_READ]);
           close(pfd[i][PIPE_WRITE]);
         }
+        close(fd);
         execlp("wc", "wc", (char *)NULL);
       }
       else{
@@ -79,6 +82,7 @@ int main(){
           close(pfd[i][PIPE_READ]);
           close(pfd[i][PIPE_WRITE]);
         }
+        close(fd);
         wait( (int *)0 );
         wait( (int *)0 );
         wait( (int *)0 );
